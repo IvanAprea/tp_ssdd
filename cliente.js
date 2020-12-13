@@ -144,17 +144,13 @@ rl.on('line', function (comando) {
 });
 
 function cerrar() {
-
     rl.close();
-
     socketAll.close();
     socketHeartbeat.close();
     socketCliente.close();
-
-    Array.from(listaSockets.values()).forEach((socket) => { socket.close() });
-
+    Array.from(listaSockets.values()).forEach((socket) => { socket.close(); });
     logearTexto(`Hasta luego ${ID_CLIENTE}!`);
-    //process.exit(); // con esto funciona, pero seria mas prolijo lograr que los socket se cierren naturalmente
+    process.exit();
 }
 
 function logearError(mensaje) {
@@ -317,7 +313,7 @@ function recibirMensaje(topico, mensajeJSON) {
     const mensaje = JSON.parse(mensajeJSON);
     if (mensaje.emisor != ID_CLIENTE) {
         almacenMensajes.almacenarMensaje(topico, mensaje);
-        logearTexto("[" + topico + " | " + mensaje.emisor + " | " + mensaje.fecha + " | " + mensaje.mensaje + "]"); //quiza convenga recortar un poco la fecha
+        console.log("\x1b[32m", "[" + topico + " | " + mensaje.emisor + " | " + mensaje.fecha + " | " + mensaje.mensaje + "]" ,"\x1b[0m")
     }
 }
 

@@ -43,7 +43,6 @@ function callBackMensajes(response) {
     }
 }
 
-
 function callBackElimMensajes(response) {
     const rtaParseada = JSON.parse(response);
     if (rtaParseada.exito) {
@@ -55,6 +54,9 @@ function callBackElimMensajes(response) {
     }
 }
 
+function callBackListaBrokers(response) {
+    document.getElementById('listaBrokers').innerHTML = response;
+}
 
 
 
@@ -76,12 +78,8 @@ function mostrarMensajes(idBroker, topico) {
 }
 
 function eliminarMensajes(idBroker, topico) {
-
     httpDeleteAsync(`${PATH}/broker/${idBroker}/topics/${topico}`, callBackElimMensajes)
 }
-
-
-
 
 
 /* FUNCIONES XHR */

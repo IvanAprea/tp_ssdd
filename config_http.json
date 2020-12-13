@@ -7,14 +7,14 @@
       "puerto": 40
     },
     {
-      "id": "BROKER_2",
+      "id": "BROKER_1",
       "ip": "127.0.0.1",
       "puerto": 40
     },
     {
-      "id": "BROKER_3",
+      "id": "BROKER_1",
       "ip": "127.0.0.1",
-      "puerto": 41
+      "puerto": 40
     }
   ]
 }

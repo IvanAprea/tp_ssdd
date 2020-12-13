@@ -1,18 +1,16 @@
-<!DOCTYPE html PUBLIC>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<link rel="icon" href="images/favicon.png">
+    <link rel="icon" href="images/favicon.png">
 	<link rel="stylesheet" href="images/Azulmedia.css" type="text/css" />
 	<script type="text/javascript" src="script/clienteWeb.js"></script>
 	<title>Administrador</title>
 </head>
-
 <body>
 
 	<div id="wrap">
 		<div id="header">
-			<h1 id="logo">Administador web</h1>
+			<h1 id="logo">Administrador web</h1>
 			<div id="menu">
 				<ul>
 					<li id="current"><a href="#">Home</a></li>
@@ -21,22 +19,16 @@
 		</div>
 		<div id="content-wrap">
 			<div id="sidebar">
-				<h1 class="clear">Brokers disponibles</h1>
-				<ul class="sidemenu">
-					<li><button id="botBroker1" aria-setsize="4" aria-posinset="1" onclick="mostrarTopicos('BROKER_1')">Broker1</button></li>
-					<li><button id="botBroker2" aria-setsize="4" aria-posinset="2" onclick="mostrarTopicos('BROKER_2')">Broker2</button></li>
-					<li><button id="botBroker3" aria-setsize="4" aria-posinset="3" onclick="mostrarTopicos('BROKER_3')">Broker3</button></li>
-				</ul>
+
+				<%- include('../partials/listaBrokers', {variant:'brokers'}); %>
 			</div>
 			<div id="main">
 				<a name="TemplateInfo"></a>
-
 				<div id="boxTopicos" class="box" style="float:left;">
 					<h1 id="CartelSeleccioneB">Seleccione un broker para continuar... </h1>
 					<div id="divBrokerSelected">
 						<div>
 							<h2 id="nombreBroker"></h2>
-
 							<ul id="listaTopicos">
 							</ul>
 						</div>
@@ -61,5 +53,8 @@
 			</div>
 		</div>
 	</div>
+	<footer>
+		<p class="text-center text-muted">© Copyright 2020 Porzio Casas Gross Aprea</p>
+	</footer>
 </body>
 </html>

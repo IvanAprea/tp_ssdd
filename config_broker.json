@@ -5,10 +5,10 @@
   "ipNTP": "127.0.0.1",
   "puertoNTP": "2000",
   "periodoReloj": 7000,
-  "periodoCola": 400000,
+  "periodoCola": 4000,
   "plazoMaxCola": 10000,
   "tamMaxCola": 50,
-  "plazoMaxHeart": 30000,
+  "plazoMaxHeart": 3000,
   "periodoListaHeart": 10000,
   "ipCoord": "127.0.0.1",
   "puertoCoord": "3000"

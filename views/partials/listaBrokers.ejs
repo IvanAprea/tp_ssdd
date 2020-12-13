@@ -1,0 +1,10 @@
+<h1 class="clear">Brokers disponibles</h1>
+<ul>
+    <% brokers.forEach(function(brokAct) { %>
+    <li>
+        <button id='botBroker1' aria-setsize='4' aria-posinset='1' onclick='mostrarTopicos( <%=` '${brokAct.id}' `%>)'> <%= brokAct.id %> </button>
+    </li>
+    <% }); %>
+</ul>
+
+

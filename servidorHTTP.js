@@ -2,6 +2,7 @@
 const zmq = require('zeromq');
 const express = require('express');
 const app = express();
+app.set('view engine', 'ejs');
 const config = require('./config_http.json');
 
 const PUERTO_LISTEN = config.puertoServidor;
@@ -32,12 +33,21 @@ function solicitarAlBroker(broker, operacion, topico) {
 // configuramos la carpeta 'public' como una carpeta de contenido estatico, html, css, etc.
 app.use(express.static('public'));
 
+// index page
+app.get('/', function (req, res) {
+    const arrayBrokers = config.datosBroker;
+
+    res.render('pages/index', {
+        brokers: arrayBrokers
+    });
+});
+
 app.get('/broker/:broker/topics', async function (req, res) {
     const idBroker = req.params.broker;
     let resultado = await solicitarAlBroker(brokers.get(idBroker), MOSTRAR_TOP, ""); //esta bien el ultimo parametro?
-    res.setHeader("Content-Type", "text/plain");
+    res.setHeader("Content-Type", "text/html");
     res.writeHead(200);
-    res.end(resultado)
+    res.end(resultado);
 });
 
 app.get('/broker/:broker/topics/:topico', async function (req, res) {
